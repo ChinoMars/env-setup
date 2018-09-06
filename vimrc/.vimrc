@@ -8,11 +8,17 @@ set cindent
 set tags=./tags
 set encoding=utf-8
 
-"================Vundle Settings
+" How to install Vundle
+"""""""""""""""""""""""""""""""""""""""
+" git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+"
+" Vundle Settings
+"""""""""""""""""""""""""""""""""""""""
 set nocompatible
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
-"=============== Vundle plugin begin
+" Vundle plugin begin
+"""""""""""""""""""""""""""""""""""""""
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'vim-scripts/indentpython.vim'
