@@ -8,6 +8,9 @@ set mouse=a
 set autoindent
 set cindent
 
+" expand tab to 4 spaces
+set expandtab
+
 set tags=./tags
 set encoding=utf-8
 
