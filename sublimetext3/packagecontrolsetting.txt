@@ -1,0 +1,43 @@
+{
+	"bootstrapped": true,
+	"channels":
+	[
+		"http://cst.stu.126.net/u/json/cms/channel_v3.json",
+		"https://erhan.in/channel_v3.json"
+	],
+	"debug": false,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"1337 Color Scheme",
+		"3024 Color Scheme",
+		"Alignment",
+		"All Autocomplete",
+		"Anaconda",
+		"AutoPEP8",
+		"BracketHighlighter",
+		"Codecs33",
+		"ConvertToUTF8",
+		"CTags",
+		"DocBlockr",
+		"Emmet",
+		"Git",
+		"GitGutter",
+		"LaTeXTools",
+		"MarkdownLivePreview",
+		"MarkdownPreview",
+		"MarkdownTOC",
+		"Package Control",
+		"Predawn",
+		"Python Checker",
+		"Python PEP8 Autoformat",
+		"SideBarEnhancements",
+		"Solarized Color Scheme",
+		"Terminal",
+		"Theme - Soda",
+		"Theme - Spacegray",
+		"TrailingSpaces"
+	]
+}
