@@ -8,7 +8,7 @@ set mouse=a
 set autoindent
 set cindent
 
-" expand tab to 4 spaces
+" expand tab to spaces
 set expandtab
 
 set tags=./tags
@@ -30,13 +30,21 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim' 
 Plugin 'vim-scripts/indentpython.vim'
 
+" markdown support
+"""""""""""""""""""""""""""""""""""""""
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
+let g:vim_markdown_folding_disabled = 1
+"Plugin 'suan/vim-instant-markdown'
+
+
 " code auto-complete
 """""""""""""""""""""""""""""""""""""""
-Bundle 'Pydiction'
+"Bundle 'Pydiction'
 Plugin 'Valloric/YouCompleteMe'
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif " close preview window after leaving insert mode
 "let g:ycm_collect_identifiers_from_tags_files = 1      " open tags search engine of YCM
-"let g:ycm_collect_identifiers_from_comments_and_strings = 1    " complete search from comments and strings
+let g:ycm_collect_identifiers_from_comments_and_strings = 1    " complete search from comments and strings
 let g:ycm_seed_identifiers_with_syntax = 1              " syntax key-word complete
 "let g:ycm_key_list_select_completion = ['<c-n>', '<Down>'] " in case tab is blocked
 "let g:ycm_key_list_select_completion = ['<c-p>', '<Up>']
@@ -45,10 +53,21 @@ let g:ycm_complete_in_strings = 1                           " complete in string
 let g:ycm_global_ycm_extra_conf='~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 let g:ycm_show_diagnostics_ui = 0                           " disable syntax check
 
+" code format
+"""""""""""""""""""""""""""""""""""""""
+Plugin 'rhysd/vim-clang-format'
+
 " code highlight
 """""""""""""""""""""""""""""""""""""""
 Bundle 'Markdown'
 Bundle 'Markdown-syntax'
+
+" c/cpp highlight
+"""""""""""""""""""""""""""""""""""""""
+Plugin 'octol/vim-cpp-enhanced-highlight'
+let g:cpp_class_scope_highlight = 1
+let g:cpp_member_variable_hightlight = 1
+let g:cpp_class_decl_highlight = 1
 
 " file tree 
 """""""""""""""""""""""""""""""""""""""
@@ -67,6 +86,13 @@ let g:ariline_powerline_fonts = 1
 
 " set on tabline
 let g:airline#extensions#tabline#enabled = 1
+
+" theme
+"""""""""""""""""""""""""""""""""""""""
+"Plugin 'flazz/vim-colorschemes'
+Bundle 'Solarized'
+set background=dark
+colorscheme solarized
 
 " indent_guide
 """""""""""""""""""""""""""""""""""""""
@@ -134,5 +160,3 @@ set autowrite
 
 " set ruler
 set ruler
-
-
