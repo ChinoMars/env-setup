@@ -14,34 +14,16 @@ set expandtab
 set tags=./tags
 set encoding=utf-8
 
-
-"""""""""""""""""""""""""""""""""""""""
-" Vundle Settings
-"""""""""""""""""""""""""""""""""""""""
-" How to install Vundle
-"""""""""""""""""""""""""""""""""""""""
-" git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-
-set nocompatible 
-filetype off 
-set rtp+=~/.vim/bundle/Vundle.vim 
-" Vundle plugin begin
-call vundle#begin() 
-Plugin 'VundleVim/Vundle.vim' 
-Plugin 'vim-scripts/indentpython.vim'
+call plug#begin('~/.vim/plugged')
+Plug 'vim-scripts/indentpython.vim'
 
 " markdown support
 """""""""""""""""""""""""""""""""""""""
-Plugin 'godlygeek/tabular'
-Plugin 'plasticboy/vim-markdown'
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
 let g:vim_markdown_folding_disabled = 1
-"Plugin 'suan/vim-instant-markdown'
 
-
-" code auto-complete
-"""""""""""""""""""""""""""""""""""""""
-"Bundle 'Pydiction'
-Plugin 'Valloric/YouCompleteMe'
+Plug 'Valloric/YouCompleteMe'
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif " close preview window after leaving insert mode
 "let g:ycm_collect_identifiers_from_tags_files = 1      " open tags search engine of YCM
 let g:ycm_collect_identifiers_from_comments_and_strings = 1    " complete search from comments and strings
@@ -55,29 +37,29 @@ let g:ycm_show_diagnostics_ui = 0                           " disable syntax che
 
 " code format
 """""""""""""""""""""""""""""""""""""""
-Plugin 'rhysd/vim-clang-format'
+Plug 'rhysd/vim-clang-format'
 
-" code highlight
-"""""""""""""""""""""""""""""""""""""""
-Bundle 'Markdown'
-Bundle 'Markdown-syntax'
+" white space plugin
+Plug 'ntpeters/vim-better-whitespace'
+let g:better_whitespace_enabled=1
+let g:strip_whitespace_on_save=1
 
 " c/cpp highlight
 """""""""""""""""""""""""""""""""""""""
-Plugin 'octol/vim-cpp-enhanced-highlight'
+Plug 'octol/vim-cpp-enhanced-highlight'
 let g:cpp_class_scope_highlight = 1
 let g:cpp_member_variable_hightlight = 1
 let g:cpp_class_decl_highlight = 1
 
-" file tree 
+" file tree
 """""""""""""""""""""""""""""""""""""""
-Plugin 'vim-scripts/The-NERD-tree'
+Plug 'vim-scripts/The-NERD-tree'
 map <F2> :NERDTreeToggle<CR>
 let NERDTreeWinSize=25
 
 " optimize the ui
 """""""""""""""""""""""""""""""""""""""
-Plugin 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline'
 " set the color
 set t_Co=256
 set laststatus=2
@@ -87,54 +69,28 @@ let g:ariline_powerline_fonts = 1
 " set on tabline
 let g:airline#extensions#tabline#enabled = 1
 
-" theme
-"""""""""""""""""""""""""""""""""""""""
-"Plugin 'flazz/vim-colorschemes'
-Bundle 'Solarized'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+" Enable per-command history.
+" " CTRL-N and CTRL-P will be automatically bound to next-history and
+" " previous-history instead of down and up. If you don't like the change,
+" " explicitly bind the keys to down and up in your $FZF_DEFAULT_OPTS.
+let g:fzf_history_dir = '~/.local/share/fzf-history'
+map <C-f> :FZF<CR>
+
+Plug 'majutsushi/tagbar'
+"let Tlist_Use_Right_Window=1
+"let Tlist_Show_One_File=1
+"let Tlist_Exit_OnlyWindow=1
+"let Tlist_GainFocus_On_ToggleOpen=1
+"let Tlist_WinWidth=32
+let g:tagbar_ctags_bin='/usr/bin/ctags'
+nmap <F4> :TagbarToggle<CR>
+
+call plug#end()
+
 set background=dark
 colorscheme solarized
-
-" indent_guide
-"""""""""""""""""""""""""""""""""""""""
-"Plugin 'nathanaelkane/vim-indent-guides'
-"let g:indent_guides_enable_on_vim_startup = 1 " start when vim started
-"let g:indent_guides_start_level = 1           " enable indent level guide lines
-"let g:indent_guides_guide_size = 1            " set guide line width
-"let g:indent_guides_tab_guides = 0            " don't guide tab
-
-call vundle#end() 
-" Vundle plugin end
-filetype plugin indent on
-
-"""""""""""""""""""""""""""""""""""""""
-" insert file header
-"""""""""""""""""""""""""""""""""""""""
-autocmd BufNewFile *.py exec ":call SetHeader()"
-" define function SetHeader, insert file header
-func SetHeader()
-    if &filetype == 'python'
-        call setline(1, "#!/usr/bin/python")
-        call append(line("."), "")
-        call append(line(".")+1, "")
-    endif
-    " auto go to end of a file when open a file
-    autocmd BufNewFile * normal G
-endfunc
-"autocmd BufNewFile *.py,*.cpp,*.[ch],*.sh,*.java exec ":call SetTitle()" 
-"""定义函数SetTitle，自动插入文件头 
-"func SetTitle() 
-"    "如果文件类型为.sh文件 
-"    if &filetype == 'python' 
-"        call setline(1, "#########################################################################") 
-"        call append(line("."), "# File Name: ".expand("%")) 
-"        call append(line(".")+1, "# Created Time: ".strftime("%c")) 
-"        call append(line(".")+2, "#########################################################################") 
-"        call append(line(".")+3, "#!/usr/bin/python") 
-"        call append(line(".")+4, "") 
-"    endif
-"
-"    autocmd BufNewFile * normal G
-"endfunc
 
 """""""""""""""""""""""""""""""""""""""
 " keyboard cmd
