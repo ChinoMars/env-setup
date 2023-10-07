@@ -1,0 +1,2 @@
+setting set stop-line-count-before 10
+setting set stop-line-count-after 10
