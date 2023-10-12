@@ -87,10 +87,17 @@ Plug 'majutsushi/tagbar'
 let g:tagbar_ctags_bin='/usr/bin/ctags'
 nmap <F4> :TagbarToggle<CR>
 
+Plug 'xavierd/clang_complete'
+
+Plug 'flazz/vim-colorschemes'
+
+Plug 'puremourning/vimspector'
+let g:vimspector_enable_mappings = 'VISUAL_STUDIO'
+
 call plug#end()
 
-set background=dark
-colorscheme solarized
+"set background=dark
+colorscheme spacegray
 
 """""""""""""""""""""""""""""""""""""""
 " keyboard cmd
