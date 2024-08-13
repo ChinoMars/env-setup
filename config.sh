@@ -8,7 +8,7 @@ curl -fkLo ~/.vim/autoload/plug.vim --create-dirs \
 
 if [[ $? -ne 0 ]]; then
     echo "error: download vim-plug failed."
-    exit 1
+#    exit 1
 fi
 
 # config vimrc

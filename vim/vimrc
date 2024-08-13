@@ -7,6 +7,7 @@ set shiftwidth=4
 set mouse=a
 set autoindent
 set cindent
+set backspace=2
 
 " expand tab to spaces
 set expandtab
@@ -16,6 +17,9 @@ set encoding=utf-8
 
 call plug#begin('~/.vim/plugged')
 Plug 'vim-scripts/indentpython.vim'
+
+Plug 'vim-python/python-syntax'
+let g:python_highlight_all = 1
 
 " markdown support
 """""""""""""""""""""""""""""""""""""""
@@ -38,6 +42,8 @@ let g:ycm_show_diagnostics_ui = 0                           " disable syntax che
 " code format
 """""""""""""""""""""""""""""""""""""""
 Plug 'rhysd/vim-clang-format'
+let g:clang_library_path = '/Users/chino/lib'
+map <F3> :ClangFormat<CR>
 
 " white space plugin
 Plug 'ntpeters/vim-better-whitespace'
@@ -94,10 +100,13 @@ Plug 'flazz/vim-colorschemes'
 Plug 'puremourning/vimspector'
 let g:vimspector_enable_mappings = 'VISUAL_STUDIO'
 
+Plug 'davidhalter/jedi-vim'
+
 call plug#end()
 
 "set background=dark
-colorscheme spacegray
+"colorscheme spacegray
+colorscheme seoul256
 
 """""""""""""""""""""""""""""""""""""""
 " keyboard cmd
